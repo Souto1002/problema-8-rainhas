@@ -22,7 +22,7 @@ def solve_nqueens(n):
     backtrack()
     return len(solutions)
 
-def benchmark(n, reps=10):  
+def benchmark(n, reps=15):  
     times = []
     for _ in range(reps):
         t0 = time.perf_counter()

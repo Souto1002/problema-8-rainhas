@@ -42,7 +42,7 @@ double now_ms() {
 
 int main() {
     int sizes[] = {4, 6, 8, 10, 12, 14, 15};
-    int reps = 10;
+    int reps = 15;
     for (int s = 0; s < 7; s++) {
         int n = sizes[s];
         printf("Testando %dx%d...\n", n, n);
