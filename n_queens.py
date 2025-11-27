@@ -32,12 +32,32 @@ def benchmark(n, reps=15):
     return {"n": n, "mean_ms": statistics.mean(times), "std_ms": statistics.pstdev(times)}
 
 if __name__ == "__main__":
+    print("=" * 60)
+    print("  PROBLEMA DAS N RAINHAS - BENCHMARK (Python)")
+    print("=" * 60)
+    print()
     
     results = []
-    for n in [4, 6, 8, 10, 12, 14, 15]:
-        print(f"Testando {n}x{n}...")
+    for n in [4, 6, 8, 10, 12, 14]:
+        print(f"  Testando tabuleiro {n}x{n}...", end=" ", flush=True)
         res = benchmark(n)
         results.append(res)
-        print(f"{n}x{n}: {res['mean_ms']:.2f} ± {res['std_ms']:.2f} ms")
+        print(f"✓")
+        print(f"    Tempo médio: {res['mean_ms']:>10.2f} ms")
+        print(f"    Desvio padrão: {res['std_ms']:>8.2f} ms")
+        print()
+    
+    print("=" * 60)
+    print("  Resumo dos resultados:")
+    print("-" * 60)
+    print(f"  {'Tamanho':<10} {'Tempo Médio (ms)':<20} {'Desvio Padrão (ms)':<20}")
+    print("-" * 60)
+    for res in results:
+        print(f"  {res['n']}x{res['n']:<6} {res['mean_ms']:>15.2f} {res['std_ms']:>18.2f}")
+    print("=" * 60)
+    print()
+    print("  Resultados salvos em: tempos_python.json")
+    print()
+    
     with open("tempos_python.json", "w") as f:
         json.dump(results, f, indent=2)
