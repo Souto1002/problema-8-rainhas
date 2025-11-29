@@ -1,6 +1,5 @@
 import time
 import statistics
-import json
 
 def solve_nqueens(n):
     board = [-1] * n
@@ -56,8 +55,3 @@ if __name__ == "__main__":
         print(f"  {res['n']}x{res['n']:<6} {res['mean_ms']:>15.2f} {res['std_ms']:>18.2f}")
     print("=" * 60)
     print()
-    print("  Resultados salvos em: tempos_python.json")
-    print()
-    
-    with open("tempos_python.json", "w") as f:
-        json.dump(results, f, indent=2)
